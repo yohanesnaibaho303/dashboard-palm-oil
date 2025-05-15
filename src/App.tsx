@@ -1,11 +1,14 @@
-import { LoginForm } from "@/components/login-form"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LoginContainer from "./pages/login/LoginContainer";
+import DashboardContainer from "./components/layout/DashboardContainer";
 
-export default function Page() {
+export default function App() {
   return (
-    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-      <div className="w-full max-w-sm">
-        <LoginForm />
-      </div>
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<LoginContainer />} />
+        <Route path="/" element={<DashboardContainer />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
