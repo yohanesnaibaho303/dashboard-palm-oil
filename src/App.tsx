@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginContainer from "./pages/login/LoginContainer";
-import DashboardContainer from "./components/layout/DashboardContainer";
+import DashboardContainer from "./components/layout/dashboard/DashboardContainer";
 
 export default function App() {
   return (
