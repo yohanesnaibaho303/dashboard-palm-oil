@@ -2,6 +2,8 @@ import { AppSidebar } from "@/components/layout/dashboard/components/app-sidebar
 import { SiteHeader } from "@/components/layout/dashboard/components/site-header";
 import { ThemeProvider } from "@/components/layout/theme-provider/theme-provider.tsx";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import HomeContainer from "@/pages/home/HomeContainer";
+import { Route, Routes } from "react-router-dom";
 
 export default function DashboardContainer() {
   return (
@@ -10,15 +12,15 @@ export default function DashboardContainer() {
         <SidebarProvider className="flex flex-col">
           <SiteHeader />
           <div className="flex flex-1">
-            <AppSidebar />
+            <AppSidebar variant="inset" />
             <SidebarInset>
-              <div className="flex flex-1 flex-col gap-4 p-4">
-                <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-                  <div className="aspect-video rounded-xl bg-muted/50" />
-                  <div className="aspect-video rounded-xl bg-muted/50" />
-                  <div className="aspect-video rounded-xl bg-muted/50" />
+              <div className="flex flex-1 flex-col gap-2 @container/main">
+                <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
+                  <Routes>
+                    <Route path="home" element={<HomeContainer />} />
+                  </Routes>
+                  {/* <DataTable data={data} /> */}
                 </div>
-                <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
               </div>
             </SidebarInset>
           </div>

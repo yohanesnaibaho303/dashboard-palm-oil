@@ -2,8 +2,12 @@ import * as React from "react";
 import {
   BookOpen,
   Bot,
+  ChartArea,
   Command,
+  DollarSign,
+  DollarSignIcon,
   Frame,
+  Home,
   LifeBuoy,
   Map,
   PieChart,
@@ -32,12 +36,29 @@ const data = {
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
+  navMainOverview: [
+    {
+      name: "Home",
+      url: "/dashboard/home",
+      icon: Home,
+    },
+    {
+      name: "CPO",
+      url: "#",
+      icon: ChartArea,
+    },
+    {
+      name: "Harga Sawit",
+      url: "#",
+      icon: DollarSign,
+    },
+  ],
   navMain: [
     {
       title: "Playground",
       url: "#",
       icon: SquareTerminal,
-      isActive: true,
+      isActive: false,
       items: [
         {
           title: "History",
@@ -174,8 +195,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
+        <NavProjects projects={data.navMainOverview} projectName="Overview" />
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <NavProjects projects={data.projects} projectName="hihihohohehe" />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
