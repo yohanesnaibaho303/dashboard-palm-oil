@@ -44,7 +44,7 @@ const data = {
     },
     {
       name: "CPO",
-      url: "#",
+      url: "/dashboard/cpo",
       icon: ChartArea,
     },
     {

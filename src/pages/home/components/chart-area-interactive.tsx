@@ -134,6 +134,7 @@ const chartConfig = {
 export function ChartAreaInteractive() {
   const isMobile = useIsMobile();
   const [timeRange, setTimeRange] = React.useState("30d");
+  const [cardDesc, setCardDesc] = React.useState("");
 
   React.useEffect(() => {
     if (isMobile) {
@@ -158,11 +159,9 @@ export function ChartAreaInteractive() {
   return (
     <Card className="@container/card">
       <CardHeader className="relative">
-        <CardTitle>Total Visitors</CardTitle>
+        <CardTitle>Total Panen</CardTitle>
         <CardDescription>
-          <span className="@[540px]/card:block hidden">
-            Total for the last 3 months
-          </span>
+          <span className="@[540px]/card:block hidden">{cardDesc}</span>
           <span className="@[540px]/card:hidden">Last 3 months</span>
         </CardDescription>
         <div className="absolute right-4 top-4">
@@ -173,13 +172,25 @@ export function ChartAreaInteractive() {
             variant="outline"
             className="@[767px]/card:flex hidden"
           >
-            <ToggleGroupItem value="90d" className="h-8 px-2.5">
+            <ToggleGroupItem
+              value="90d"
+              className="h-8 px-2.5"
+              onClick={() => setCardDesc("Last 3 month")}
+            >
               Last 3 months
             </ToggleGroupItem>
-            <ToggleGroupItem value="30d" className="h-8 px-2.5">
+            <ToggleGroupItem
+              value="30d"
+              className="h-8 px-2.5"
+              onClick={() => setCardDesc("Last 30 days")}
+            >
               Last 30 days
             </ToggleGroupItem>
-            <ToggleGroupItem value="7d" className="h-8 px-2.5">
+            <ToggleGroupItem
+              value="7d"
+              className="h-8 px-2.5"
+              onClick={() => setCardDesc("Last 7 days")}
+            >
               Last 7 days
             </ToggleGroupItem>
           </ToggleGroup>
